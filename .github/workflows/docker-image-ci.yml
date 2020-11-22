@@ -16,12 +16,6 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    - name: Run unit tests
-      run: |
-        cat tests/sample_local_settings.json  > './test-local.settings.json'
-        pip3 install -r requirements.txt
-        python3 -m unittest discover -s tests -p 'test_*.py'
-
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v1
 
