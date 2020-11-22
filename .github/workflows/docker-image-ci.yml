@@ -10,17 +10,10 @@ jobs:
 
   build:
 
-    runs-on: ubuntu-latest
-
+    runs-on: ubuwntu-latest
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-
-    - name: Run unit tests
-      run: |
-        cat tests/sample_local_settings.json  > './test-local.settings.json'
-        pip3 install -r requirements.txt
-        python3 -m unittest discover -s tests -p 'test_*.py'
 
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v1
@@ -39,7 +32,7 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: tmackdh/adls-utils:beta
+        tags: tmackdh/sample-r-model:beta
         file: ./Dockerfile
 
     - name: Image digest
