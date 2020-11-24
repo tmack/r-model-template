@@ -1,14 +1,14 @@
-FROM rocker/r-apt:disco
+FROM python:buster
 
-WORKDIR /app
+#WORKDIR /app
+#
+#RUN apt-get update && \
+#    apt-get install -y -qq \
+#    	r-cran-plumber \
+#    	r-cran-jsonlite \
+#    	r-cran-dplyr \
+#    	r-cran-stringr
 
-RUN apt-get update && \
-    apt-get install -y -qq \
-    	r-cran-plumber \
-    	r-cran-jsonlite \
-    	r-cran-dplyr \
-    	r-cran-stringr
+COPY main.py /app
 
-COPY main.R /app
-
-CMD ["R", "main.R"]
+CMD ["python", "main.py"]
